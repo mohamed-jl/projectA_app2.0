@@ -1,10 +1,8 @@
 @echo off
 cd /d "%~dp0"
 echo Installing dependencies...
-if exist yarn.lock (
-    yarn install
-) else (
-    npm install
+if not exist node_modules (
+    npm install --force
 )
 echo Starting Expo...
 npx expo start --android
