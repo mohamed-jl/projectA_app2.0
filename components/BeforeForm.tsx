@@ -44,9 +44,9 @@ const BeforeForm = ({setDestination, setPlane}:Props) => {
                 placeholder={{ label: "select a destination", value: null }}
                 onValueChange={(value) => setDestination(value)}
                 items={[
-                    { label: "MISKAR", value: "miskar" },
-                    { label: "HASDRUBAL", value: "hasdrubal" },
-                    { label: "ASHTART ", value: "ashtart" },
+                    { label: "MISKAR", value: "MISKAR" },
+                    { label: "HASDRUBAL", value: "HASDRUBAL" },
+                    { label: "ASHTART ", value: "ASHTART" },
                 ]}
                 style={pickerStyle}
                 useNativeAndroidPickerStyle={false}

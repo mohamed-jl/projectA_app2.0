@@ -2,7 +2,7 @@ import { View, Text, TextInput, StyleSheet } from "react-native";
 import React, { useState } from "react";
 import Checkbox from "expo-checkbox";
 
-const LDGData = ({ onChange }: { onChange: (data: any) => void }) => {
+const LDGData = ({ onChange, data }: { onChange: (data: any) => void, data: any }) => {
   const [selectedCP, setSelectedCP] = useState<string | null>(null);
   const [form, setForm] = useState({
     ldgPerfo: '',
@@ -62,11 +62,14 @@ const LDGData = ({ onChange }: { onChange: (data: any) => void }) => {
         <TextInput
           style={styles.input}
           onChangeText={(val) => handleInputChange("ldp", val)}
+          value="220"
+          
         />
         <Text style={styles.centerLabel}>V1</Text>
         <TextInput
           style={styles.input}
           onChangeText={(val) => handleInputChange("v1", val)}
+          value="25"
         />
         <Text style={styles.centerLabel}>VTOS</Text>
         <TextInput
@@ -107,6 +110,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#ccc",
     minWidth: 60,
+    fontWeight: "bold",
   },
   flex1Col: {
     flex: 1,
@@ -130,6 +134,7 @@ const styles = StyleSheet.create({
     borderColor: "#ccc",
     minWidth: 40,
     textAlign: "center",
+    fontWeight: "bold",
   },
   checkboxRow: {
     flexDirection: "row",
@@ -149,6 +154,7 @@ const styles = StyleSheet.create({
     flex: 1,
     textAlign: "center",
     minWidth: 40,
+    fontWeight: "bold",
   },
   header1: {
     backgroundColor: "#d1d5db",

@@ -1,13 +1,20 @@
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, TextInput } from 'react-native';
 import React, { useState } from 'react';
 import Checkbox from 'expo-checkbox';
 
 interface TOPerfoProps {
   onChange: (value: { cp1Cp2: string | null }) => void;
+  data: any;
 }
 
-const TOPerfo = ({ onChange }: TOPerfoProps) => {
+const TOPerfo = ({ onChange, data }: TOPerfoProps) => {
   const [selected, setSelected] = useState<string | null>(null);
+
+  const [data1, setData1] = useState({
+    tdp: data.tdp || '20',
+    v1: data.v1 || '70',
+    vToss: data.vToss || '',
+  });
 
   const handleSelect = (value: string) => {
     const newValue = selected === value ? null : value;
@@ -29,6 +36,12 @@ const TOPerfo = ({ onChange }: TOPerfoProps) => {
           value={selected === 'CP2'}
           onValueChange={() => handleSelect('CP2')}
         />
+      <Text style={{borderRightWidth: 1,borderLeftWidth: 1,borderColor: '#ccc', padding: 8, flex:1, fontWeight: 'bold' }}>T.D.P</Text>
+      <TextInput style={{borderRightWidth: 1,borderColor: '#ccc', padding: 8, flex:1 }} value={data1.tdp}/>
+      <Text style={{borderRightWidth: 1,borderColor: '#ccc', padding: 8, flex:1 , fontWeight: 'bold'}}>V1</Text>
+      <TextInput style={{borderRightWidth: 1,borderColor: '#ccc', padding: 8, flex:1 }} value={data1.v1}/>
+      <Text style={{borderRightWidth: 1,borderColor: '#ccc', padding: 8, flex:1 , fontWeight: 'bold'}}>V.TOSS</Text>
+      <TextInput style={{borderRightWidth: 1,borderColor: '#ccc', padding: 8, flex:1 }} value={data1.v1}/>
       </View>
     </View>
   );
